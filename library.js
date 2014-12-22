@@ -132,9 +132,12 @@
         res.render('sso/qq/admin', {});
     }
 
-    QQ.init = function(app, middleware, controllers) {
+    QQ.init = function(args,callback) {
+      var app = args.router, middleware = args.middleware, controllers = args.controllers;
+
         app.get('/admin/qq', middleware.admin.buildHeader, renderAdmin);
         app.get('/api/admin/qq', renderAdmin);
+        callback();
     };
 
     module.exports = QQ;
