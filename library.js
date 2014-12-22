@@ -54,7 +54,7 @@
                 name: 'qq',
                 url: '/auth/qq',
                 callbackURL: '/auth/qq/callback',
-                icon: 'qq',
+                icon: 'fa-qq',
                 scope: 'user:email'
             });
         }
