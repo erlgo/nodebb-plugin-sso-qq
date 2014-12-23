@@ -21,10 +21,11 @@
 
     QQ.getStrategy = function(strategies, callback) {
         if (meta.config['social:qq:id'] && meta.config['social:qq:secret']) {
+          var url = meta.config['social:url'] || module.parent.require('nconf').get('url');
             passport.use(new passportQQ({
                 clientID: meta.config['social:qq:id'],
                 clientSecret: meta.config['social:qq:secret'],
-                callbackURL: module.parent.require('nconf').get('url') + '/auth/qq/callback'
+                callbackURL:  url + '/auth/qq/callback'
             },function(token, tokenSecret, profile, done) {
 
                     // console.log(token);

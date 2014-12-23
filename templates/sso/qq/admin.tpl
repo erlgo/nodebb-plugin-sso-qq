@@ -11,6 +11,7 @@
 		<br />
 		<input type="text" data-field="social:qq:id" title="App ID" class="form-control input-lg" placeholder="App ID"><br />
 		<input type="text" data-field="social:qq:secret" title="App Secret" class="form-control" placeholder="App Secret"><br />
+		<input type="text" data-field="social:url" title="WebSite Url" class="form-control" placeholder="WebSite Url eg:http://abc.com"><br />
 	</div>
 </form>
 
