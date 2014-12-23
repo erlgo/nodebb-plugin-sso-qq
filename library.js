@@ -118,7 +118,7 @@
             }
         });
     };
-    GitHub.userDelete = function(uid,callback){
+    QQ.userDelete = function(uid,callback){
       db.getObjectField('sso:qq:uid', uid, function(err, ssoid) {
         if (err) {
           callback();
