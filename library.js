@@ -27,9 +27,9 @@
                 callbackURL: module.parent.require('nconf').get('url') + '/auth/qq/callback'
             },function(token, tokenSecret, profile, done) {
 
-                    console.log(token);
-                    console.log(tokenSecret);
-                    console.log(profile);
+                    // console.log(token);
+                    // console.log(tokenSecret);
+                    // console.log(profile);
 
                 var email = ''
                 if(profile.emails && profile.emails.length){
@@ -63,7 +63,7 @@
     };
 
     QQ.login = function(qqID, username, email, picture, callback) {
-        console.log("qqID=" + qqID + ", username=" + username);
+        // console.log("qqID=" + qqID + ", username=" + username);
         if (!email) {
             email = username + '@users.noreply.qq.com';
         }
