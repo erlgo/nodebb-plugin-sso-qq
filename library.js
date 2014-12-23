@@ -85,7 +85,8 @@
                     User.setUserField(uid, 'picture', picture);
                     User.setUserField(uid, 'gravatarpicture', picture);
                     User.setUserField(uid, 'uploadedpicture', picture);
-                    db.setObjectField('qqid:openid', qqID, uid);
+                    db.setObjectField('sso:qq:id', qqID, uid);
+                    db.setObjectField('sso:qq:uid', uid, qqID);
                     callback(null, {
                         uid: uid
                     });
@@ -109,7 +110,7 @@
     };
 
     QQ.getUidByqqID = function(qqID, callback) {
-        db.getObjectField('qqid:openid', qqID, function(err, uid) {
+        db.getObjectField('sso:qq:id', qqID, function(err, uid) {
             if (err) {
                 callback(err);
             } else {
@@ -117,6 +118,17 @@
             }
         });
     };
+    GitHub.userDelete = function(uid,callback){
+      db.getObjectField('sso:qq:uid', uid, function(err, ssoid) {
+        if (err) {
+          callback();
+        } else {
+          db.deleteObjectField('sso:qq:id',ssoid);
+          db.deleteObjectField('sso:qq:uid',uid);
+          callback();
+        }
+      });
+    }
 
     QQ.addMenuItem = function(custom_header, callback) {
         custom_header.authentication.push({
